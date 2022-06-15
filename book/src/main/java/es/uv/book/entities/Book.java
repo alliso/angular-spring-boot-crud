@@ -26,6 +26,9 @@ public class Book {
     @Column(name = "author", length = 50, nullable = false, unique = false)
     private String author;
 
+    @Column(name = "description", length = 50)
+    private String description;
+
     public Book(String title, String author) {
         this.title = title;
         this.author = author;

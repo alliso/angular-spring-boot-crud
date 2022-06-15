@@ -1,0 +1,6 @@
+projectKey=alliso_angular-spring-boot-crud
+serverUrl=http://sonar.alliso.es
+serverVersion=9.3.0.51899
+dashboardUrl=http://sonar.alliso.es/dashboard?id=alliso_angular-spring-boot-crud
+ceTaskId=AYFnCasTPWkKITUylIvW
+ceTaskUrl=http://sonar.alliso.es/api/ce/task?id=AYFnCasTPWkKITUylIvW

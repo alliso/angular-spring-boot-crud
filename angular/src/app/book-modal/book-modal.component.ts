@@ -21,7 +21,8 @@ export class BookModalComponent implements OnInit {
                 this.bookForm = this.fb.group(
                   {
                     title:"",
-                    author:""
+                    author:"",
+                    description:""
                   }
                 )
               }
@@ -44,12 +45,14 @@ export class BookModalComponent implements OnInit {
   updateBook() {
     this.book.title = this.bookForm.get("title")?.value;
     this.book.author = this.bookForm.get("author")?.value;
+    this.book.description = this.bookForm.get("description")?.value
     this.bookService.updateBook(this.book).subscribe((data: Book) => console.log("Updated book", data));
   }
 
   createBook() {
     this.book.title = this.bookForm.get("title")?.value;
     this.book.author = this.bookForm.get("author")?.value;
+    this.book.description = this.bookForm.get("description")?.value
     this.bookService.createBook(this.book).subscribe((data: Book) => console.log("Created book", data));
   }
 
