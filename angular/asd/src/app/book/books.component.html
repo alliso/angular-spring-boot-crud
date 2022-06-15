@@ -1,0 +1,22 @@
+<div class ="container">
+    <div class = "card">
+        <h3 class="text-center"> Books List</h3>
+        <div class = "card-body">
+            <table class="table table-striped">
+                <thead>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let book of books" (click)="abrirPopup(book.id)">
+                        <td> {{ book.id}}</td>
+                        <td> {{ book.title}}</td>
+                        <td> {{ book.author}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button mat-button (click)="abrirPopup(0)">New book</button>
+        </div>
+    </div>
+</div>
