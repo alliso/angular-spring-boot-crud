@@ -28,3 +28,9 @@ services:
     volumes:
       - ./book:/usr/src/mymaven
     command:  /bin/bash -c "tail -f /dev/null"
+  frontend:
+    container_name: frontend
+    image: node
+    volumes:
+      - ./angular:/usr/src/angular/
+    command:  /bin/bash -c "tail -f /dev/null"

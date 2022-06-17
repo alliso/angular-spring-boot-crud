@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { BookModalComponent } from './book-modal/book-modal.component';
 import { BooksComponent } from './book/books.component';
 import { PruebasComponent } from './pruebas/pruebas.component';
+import { ReaderComponent } from './reader/reader.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { PruebasComponent } from './pruebas/pruebas.component';
     BooksComponent,
     BookModalComponent,
     PruebasComponent,
+    ReaderComponent,
   ],
   imports: [
     BrowserModule,
