@@ -1,9 +1,11 @@
 package es.uv.book.services;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import es.uv.book.entities.Book;
@@ -16,11 +18,12 @@ public class BookService {
     @Autowired
     private BookRepository bookRepository;
 
-    public List<Book> findAllBooks() {
-        List<Book> books = bookRepository.findAll();
+    public Page<Book> findAllBooks(int page, int size) {
+        Pageable currentPage = PageRequest.of(page, size);
+        Page<Book> books = bookRepository.findAll(currentPage);
 
-        if (books.isEmpty())
-            throw new NotFoundException("We don't have any book");
+        //if (books.isEmpty())
+          //  throw new NotFoundException("We don't have any book");
         
         return books;
     }

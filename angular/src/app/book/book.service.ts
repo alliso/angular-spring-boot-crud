@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Book } from '../shared/book';
+import { BookPage } from '../shared/bookPage';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ export class BookService {
 
   constructor(private http: HttpClient) { }
 
-  getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>(`${this.baseUrl}`)
+  getBooks(page: number): Observable<BookPage> {
+    return this.http.get<BookPage>(`${this.baseUrl}/?page=${page}`);
   }
 
   getBookById(id: number) {

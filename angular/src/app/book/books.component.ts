@@ -3,6 +3,8 @@ import { Book } from '../shared/book';
 import { BookService } from './book.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { BookModalComponent } from '../book-modal/book-modal.component';
+import { BookPage } from '../shared/bookPage';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-book',
@@ -12,12 +14,18 @@ import { BookModalComponent } from '../book-modal/book-modal.component';
 export class BooksComponent implements OnInit {
 
   books: Book[];
-  constructor(private bookService: BookService, private dialog: MatDialog) {}
+  pages: number;
+  currentPage: number;
+  constructor(  private bookService: BookService, 
+                private dialog: MatDialog,
+                private route: ActivatedRoute,
+                private router: Router) {}
 
   ngOnInit(): void {
-    this.bookService.getBooks().subscribe((data: Book[]) => {
-      console.log(data);
-      this.books = data;
+    
+    this.bookService.getBooks(0).subscribe((data: BookPage) => {
+      this.books = data.content;
+      this.pages = data.totalPages;
     })
   }
 

@@ -1,17 +1,8 @@
 <div class ="container">
-    <div class = "card">
-        <h3 class="text-center"> Books List</h3>
-        <mat-list >
-            <mat-list-item *ngFor = "let book of books" (click)="abrirPopup(book.id)" style="height: auto">
-                <mat-card>
-                    <mat-card-title>{{ book.title }}</mat-card-title>
-                    <mat-card-subtitle>{{ book.author }}</mat-card-subtitle>
-                    <mat-card-content>
-                        <p>{{ book.description }}</p>
-                    </mat-card-content>
-                </mat-card>
-            </mat-list-item>
-        </mat-list>
-        <button mat-button (click)="abrirPopup(0)">New book</button>
-    </div>
+    
+    <router-outlet></router-outlet>
+    <mat-nav-list fxLayout="row">
+        <a *ngFor="let page of [].constructor(this.pages); let i = index" mat-list-item routerLink="{{i}}">{{i}}</a>
+    </mat-nav-list>
+    
 </div>
