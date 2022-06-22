@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-book-modal',
   templateUrl: './book-modal.component.html',
-  styleUrls: ['./book-modal.component.css']
+  styleUrls: ['./book-modal.component.scss']
 })
 export class BookModalComponent implements OnInit {
   public bookForm:FormGroup;
