@@ -53,4 +53,8 @@ public class Reader {
     public boolean addReadBook(Book book) {
         return linkedBooks.add(book);
     }
+
+    public boolean deleteReadBook(Book book) {
+        return linkedBooks.remove(book);
+    }
 }

@@ -62,4 +62,26 @@ public class ReaderService {
 
         return readerRepository.save(reader);
     }
+
+    public Reader deleteBookByIdToReader(long bookId, long readerId) {
+        Optional<Reader> optReader = readerRepository.findById(readerId);
+        Optional<Book> optBook = bookRepository.findById(bookId);
+
+        if(!optReader.isPresent())
+            throw new NotFoundException("We don't have any reader with id: " + readerId);
+
+        if(!optBook.isPresent())
+            throw new NotFoundException("We don't have any book with id: " + bookId);
+
+        Reader reader = optReader.get();
+        reader.deleteReadBook(optBook.get());
+
+        return readerRepository.save(reader);
+    }
+
+    public Reader deleteBookFromReader(Reader reader, Book book) {
+        reader.deleteReadBook(book);
+
+        return readerRepository.save(reader);
+    }
 }

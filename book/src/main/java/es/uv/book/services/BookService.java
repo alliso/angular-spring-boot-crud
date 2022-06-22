@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import es.uv.book.entities.Book;
+import es.uv.book.entities.Reader;
 import es.uv.book.exceptions.NotFoundException;
 import es.uv.book.repositories.BookRepository;
 
@@ -17,6 +18,9 @@ public class BookService {
     
     @Autowired
     private BookRepository bookRepository;
+
+    @Autowired
+    private ReaderService readerService;
 
     public Page<Book> findAllBooks(int page, int size) {
         Pageable currentPage = PageRequest.of(page, size);
@@ -55,6 +59,16 @@ public class BookService {
     }
 
     public void deleteBookById(long id) {
+        Optional<Book> optBook = bookRepository.findById(id);
+
+        if(!optBook.isPresent())
+            throw new NotFoundException("We don't have any book with id: " + id);
+
+        Book book = optBook.get();
+
+        for(Reader reader: book.getLinkedReaders())
+            readerService.deleteBookFromReader(reader, book);
+
         bookRepository.deleteById(id);
     }
 

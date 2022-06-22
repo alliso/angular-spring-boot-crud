@@ -30,11 +30,13 @@ public class ReaderController {
 
     @GetMapping
     public ResponseEntity<List<Reader>> getAllReaders() {
+        log.info("Find all readers");
         return new ResponseEntity<>(readerService.findAllReaders(), HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<Reader> saveReader(@RequestBody Reader reader) {
+        log.info("Save reader with name: {}", reader.getFirstName());
         return new ResponseEntity<>(readerService.saveReader(reader), HttpStatus.OK);
     }
 
