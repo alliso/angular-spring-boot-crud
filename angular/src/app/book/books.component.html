@@ -2,7 +2,6 @@
     
     <router-outlet></router-outlet>
     <mat-nav-list fxLayout="row">
-        <a *ngFor="let page of [].constructor(this.pages); let i = index" mat-list-item routerLink="{{i}}">{{i}}</a>
+        <a fxFlex mat-list-item *ngFor="let page of [].constructor(this.pages); let i = index" routerLink="{{i}}">{{i}}</a>
     </mat-nav-list>
-    
 </div>

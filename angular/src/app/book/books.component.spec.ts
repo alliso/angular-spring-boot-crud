@@ -1,4 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { AppRoutingModule } from '../app-routing.module';
 
 import { BooksComponent } from './books.component';
 
@@ -8,7 +11,12 @@ describe('BookComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BooksComponent ]
+      declarations: [ BooksComponent ],
+      imports: [ 
+        HttpClientModule,
+        MatDialogModule,
+        AppRoutingModule,
+       ]
     })
     .compileComponents();
 

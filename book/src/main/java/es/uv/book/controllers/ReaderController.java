@@ -17,10 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import es.uv.book.entities.Reader;
 import es.uv.book.services.ReaderService;
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @CrossOrigin
 @RequestMapping("/api/readers")
+@Slf4j
 public class ReaderController {
     
     @Autowired
@@ -40,9 +42,8 @@ public class ReaderController {
     public ResponseEntity<Reader> addBookToReader(
             @PathVariable("readerid") long readerId,
             @PathVariable("bookid") long bookId) {
+        log.info("Save reader with id: {}", readerId);
         Reader updatedReader = readerService.addBookToReader(bookId, readerId);
-        return new ResponseEntity<>(null, HttpStatus.OK);
+        return new ResponseEntity<>(updatedReader, HttpStatus.OK);
     }
-
-
 }

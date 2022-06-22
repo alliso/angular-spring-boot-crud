@@ -22,15 +22,9 @@ export class BooksComponent implements OnInit {
                 private router: Router) {}
 
   ngOnInit(): void {
-    
     this.bookService.getBooks(0).subscribe((data: BookPage) => {
-      this.books = data.content;
       this.pages = data.totalPages;
     })
-  }
-
-  abrirPopup(id: number) {
-    const dialogRef = this.dialog.open(BookModalComponent, { width: '500px', height: '400px', data:id})
   }
 
 }

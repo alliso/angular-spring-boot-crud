@@ -33,7 +33,7 @@ export class BooksListComponent implements OnInit {
     })
   }
 
-  abrirPopup(id: number) {
+  openPopup(id: number) {
     const dialogRef = this.dialog.open(BookModalComponent, { width: '500px', height: '400px', data:id})
   }
 

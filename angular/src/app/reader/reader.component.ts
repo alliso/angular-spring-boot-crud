@@ -14,9 +14,7 @@ export class ReaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.readerService.getReaders().subscribe((data: Reader[]) => {
-      console.log(data)
       this.readers = data;
-      console.log(this.readers);
     })
   }
 
