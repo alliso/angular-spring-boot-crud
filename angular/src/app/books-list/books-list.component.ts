@@ -1,4 +1,4 @@
-import { Component, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookModalComponent } from '../book-modal/book-modal.component';
@@ -23,27 +23,26 @@ export class BooksListComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.currentPage = params['page'] ? params['page'] : 0;
       this.updateBooks(this.currentPage);
-    })
+    });
   }
 
   ngOnInit(): void {
     this.bookService.getBooks(this.currentPage ? this.currentPage : 0).subscribe((data: BookPage) => {
       this.books = data.content;
       this.pages = data.totalPages;
-    })
+    });
   }
 
   openPopup(id: number) {
-    const dialogRef = this.dialog.open(BookModalComponent, { width: '500px', height: '400px', data:id})
+    const dialogRef = this.dialog.open(BookModalComponent, { width: 'fit-content', height: 'fit-content', data:id, panelClass: "modal-box"});
   }
 
   updateBooks(page: number) {
-    console.log("Page", page);
     this.bookService.getBooks(page).subscribe((data: BookPage) => {
       this.books = data.content;
       console.log("Books", this.books);
       this.ngOnInit();
-    })
+    });
   }
 
 }

@@ -1,15 +1,16 @@
-<div class = "card">
-    <h3 class="text-center"> Books List</h3>
-    <mat-list >
-        <mat-list-item *ngFor = "let book of books" (click)="openPopup(book.id)" style="height: auto">
-            <mat-card>
-                <mat-card-title>{{ book.title }}</mat-card-title>
-                <mat-card-subtitle>{{ book.author }}</mat-card-subtitle>
-                <mat-card-content>
-                    <p>{{ book.description }}</p>
-                </mat-card-content>
-            </mat-card>
-        </mat-list-item>
-    </mat-list>
-    <button mat-button (click)="openPopup(0)">New book</button>
+<div>
+    <mat-list-item *ngFor = "let book of books" (click)="openPopup(book.id)" style="height: auto" fxFlex>
+        <mat-card>
+            <mat-card-title>{{ book.title }}</mat-card-title>
+            <mat-card-subtitle>{{ book.author }}</mat-card-subtitle>
+            <mat-card-content>
+                <p>{{ book.description }}</p>
+            </mat-card-content>
+        </mat-card>
+    </mat-list-item>
+    <mat-list-item>
+        <button class="new-book" mat-raised-button (click)="openPopup(0)">
+            <h1>+</h1>
+        </button>
+    </mat-list-item>
 </div>

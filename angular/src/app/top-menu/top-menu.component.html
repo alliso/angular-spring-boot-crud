@@ -1,4 +1,11 @@
-<mat-nav-list fxLayout="row">
-  <a mat-list-item routerLink="/books" fxFlex>Books</a>
-  <a mat-list-item routerLink="/readers" fxFlex>Readers</a>
-</mat-nav-list>
+<div>
+  <mat-nav-list fxLayout="row">
+    <mat-list-item [ngClass]="{'active': selectedRoute == 'books'}">
+      <a mat-list-item routerLink="/books" fxFlex (click)="changeActive('books')" >Books</a>
+    </mat-list-item>
+    <mat-list-item [ngClass]="{'active': selectedRoute == 'readers'}">
+      <a mat-list-item routerLink="/readers" fxFlex (click)="changeActive('readers')">Readers</a>
+    </mat-list-item>
+  </mat-nav-list>
+</div>
+<mat-divider></mat-divider>

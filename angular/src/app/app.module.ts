@@ -18,6 +18,9 @@ import { PruebasComponent } from './pruebas/pruebas.component';
 import { ReaderComponent } from './reader/reader.component';
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { BooksListComponent } from './books-list/books-list.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,10 @@ import { BooksListComponent } from './books-list/books-list.component';
     FormsModule,
     ReactiveFormsModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

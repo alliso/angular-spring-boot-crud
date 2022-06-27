@@ -1,0 +1,39 @@
+@import '../shared/styles/index.scss';
+
+h2 {
+    @include center-underline;
+    font-family: Tahoma, sans-serif;;
+}
+
+mat-list-item {
+    @include little-margin;
+    width: fit-content;
+    display: inline-block;
+
+}
+
+button.new-book {
+    background-color: $primary-color;
+}
+
+mat-card {
+    background-color: $primary-color;
+    display: inline-block;
+    
+    > mat-card-title {
+        color: white;
+    }
+
+    > mat-card-subtitle {
+        color: white;
+    }
+
+    > mat-card-content {
+        color: $light-smooth-color;
+    }
+}
+
+button {
+    background-color: $dark-smooth-color;
+    color: $light-smooth-color;
+}

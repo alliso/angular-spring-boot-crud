@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopMenuComponent implements OnInit {
 
+  selectedRoute: string = "books";
+  
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  changeActive(route: string): void {
+    this.selectedRoute = route;
   }
 
 }

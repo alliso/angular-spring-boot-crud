@@ -1,29 +1,37 @@
-<mat-toolbar>
-    Book
-</mat-toolbar>
-
-<mat-dialog-content>
+<div class="dialog-topbar">
+  <h1 mat-dialog-title>Book</h1>
+  <button mat-fab aria-label="Example icon button with a delete icon"
+    (click)="deleteBook(book.id)" *ngIf="this.data != 0">
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>
+  <div mat-dialog-content>
     <form [formGroup]="bookForm">
+      <p>
         <mat-form-field>
-            <mat-label>Title</mat-label>
-            <input class="matInput" matInput placeholder="Ex. Lord of the rings" 
-                value={{book.title}} 
-                formControlName="title">
+          <mat-label>Title</mat-label>
+          <input class="matInput" matInput placeholder="Ex. Lord of the rings" 
+          value={{book.title}} 
+          formControlName="title">
         </mat-form-field>
+      </p>
+      <p>
         <mat-form-field>
-            <mat-label>Author</mat-label>
-            <input matInput placeholder="Ex. Pepe" 
-                value={{book.author}}
-                formControlName="author">
+          <mat-label>Author</mat-label>
+          <input matInput placeholder="Ex. Pepe" 
+                          value={{book.author}}
+                          formControlName="author">
         </mat-form-field>
+      </p>
+      <p>
         <mat-form-field>
-            <mat-label>Description</mat-label>
-            <input matInput placeholder="asdfasdfasdfasdfasfasfdfasdfasdf" 
-                value={{book.description}}
-                formControlName="description">
+          <mat-label>Description</mat-label>
+          <input matInput placeholder="asdfasdfasdfasdfasfasfdfasdfasdf" 
+                          value={{book.description}}
+                          formControlName="description">
         </mat-form-field>
-        <button (click)="deleteBook(book.id)" *ngIf="this.data != 0">Delete</button>
-        <button mat-button color="warn" (click)="updateBook()" *ngIf="this.data != 0">Update</button>
-        <button mat-button *ngIf="this.data == 0" (click)="createBook()">Create</button>
+      </p>
+      <button mat-raised-button color="primary" (click)="updateBook()" *ngIf="this.data != 0">Update</button>
+      <button mat-raised-button color="primary" *ngIf="this.data == 0" (click)="createBook()">Create</button>
     </form>
-</mat-dialog-content>
+  </div>

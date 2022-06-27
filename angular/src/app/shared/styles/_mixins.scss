@@ -1,0 +1,20 @@
+@mixin hover-effect {
+    &:hover, &:focus {
+        border: 1px solid red;
+    }
+}
+
+@mixin center-underline {
+    text-align: center;
+    text-decoration: underline;
+}
+
+@mixin horizontal-navigation {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+}
+
+@mixin little-margin {
+    margin: 5px;
+}

@@ -1,16 +1,11 @@
-<div class ="container">
-    <div class = "card">
-        <h3 class="text-center"> Readers List</h3>
-        <mat-list >
-            <mat-list-item *ngFor = "let reader of readers"  style="height: auto">
-                <mat-card>
-                    <mat-card-title>{{ reader.firstName }}</mat-card-title>
-                    <mat-card-subtitle>{{ reader.lastName }}</mat-card-subtitle>
-                    <mat-card-content>
-                        <p *ngFor = "let book of reader.linkedBooks">{{ book.title }}</p>
-                    </mat-card-content>
-                </mat-card>
-            </mat-list-item>
-        </mat-list>
-    </div>
+<div class="container">
+    <mat-list-item *ngFor = "let reader of readers"  style="height: auto" fxFlex>
+        <mat-card>
+            <mat-card-title>{{ reader.firstName }}</mat-card-title>
+            <mat-card-subtitle>{{ reader.lastName }}</mat-card-subtitle>
+            <mat-card-content>
+                <p *ngFor = "let book of reader.linkedBooks">{{ book.title }}</p>
+            </mat-card-content>
+        </mat-card>
+    </mat-list-item>
 </div>

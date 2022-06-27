@@ -1,5 +1,14 @@
+@import '../shared/styles/index.scss';
+
 mat-nav-list {
-  display: flex;
-  flex-direction: row;
-  width: fit-content;
+  @include horizontal-navigation;
+
+  > a {
+    background-color: $dark-smooth-color;
+    color: $light-color;
+    border-radius: 15%;
+    @include little-margin;
+  }
 }
+
+

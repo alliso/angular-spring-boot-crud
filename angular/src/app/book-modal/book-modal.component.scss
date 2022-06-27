@@ -1,0 +1,21 @@
+@import '../shared/styles/index.scss';
+
+mat-dialog-content {
+    background-color: $primary-color;
+}
+
+:host {
+    background-color: $primary-color;
+}
+
+.dialog-topbar {
+    display: flex;
+    justify-content: space-between;
+    
+    > button {
+        background-color: $primary-color;
+    }
+}
+
+form {
+}

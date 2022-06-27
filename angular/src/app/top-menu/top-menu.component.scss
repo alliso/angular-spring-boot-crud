@@ -1,0 +1,25 @@
+@import '../shared/styles/index';
+
+mat-nav-list {
+    background-color: $light-color;
+    align-items: center;
+    justify-content: center;
+    @include horizontal-navigation;
+}
+
+div {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
+
+.active {
+    color: $dark-color;
+    background-color: #e6e6e6;
+    border-radius: 20px;
+}
+
+mat-divider {
+    @include little-margin;
+}
