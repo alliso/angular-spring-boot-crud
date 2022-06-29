@@ -25,6 +25,15 @@ public class ReaderService {
         return readerRepository.findAll();
     }
 
+    public Reader findReaderById(long id) {
+        Optional<Reader> reader = readerRepository.findById(id); 
+
+        if(!reader.isPresent())
+            throw new NotFoundException("We don't have any reader with id: " + id);
+
+        return reader.get();
+    }
+
     public Reader saveReader(Reader reader) {
         return readerRepository.save(reader);
     }

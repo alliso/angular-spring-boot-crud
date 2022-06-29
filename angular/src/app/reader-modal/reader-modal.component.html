@@ -1,0 +1,30 @@
+<div class="dialog-topbar">
+    <div>
+        <h1 mat-dialog-title>{{reader.lastName}}</h1>
+        <h2>{{reader.firstName}}</h2>
+    </div>
+    <button mat-fab aria-label="Example icon button with a delete icon"
+        (click)="deleteReaderById(this.reader.id)">
+        <mat-icon>delete</mat-icon> 
+    </button>
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-content>
+    <mat-list>
+        <mat-list-item *ngFor="let book of reader.linkedBooks">{{book.title}}
+            <mat-icon (click)="deleteBookById(book.id)">delete</mat-icon> 
+        </mat-list-item>
+    </mat-list>
+    <form [formGroup]="readerForm">
+        <mat-form-field>
+            <mat-label>Id</mat-label>
+            <input class="matInput" matInput placeholder="Ex. 1"
+            value="0"
+            formControlName="id">
+        </mat-form-field>
+        <button mat-mini-fab aria-label="Add button"
+            (click)="addBookById()">
+            <mat-icon>add</mat-icon> 
+        </button>
+    </form>
+</div>

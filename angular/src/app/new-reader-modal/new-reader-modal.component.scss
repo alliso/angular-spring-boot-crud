@@ -1,0 +1,8 @@
+@import '../shared/styles/index.scss';
+
+form {
+    > button {
+        background-color: $primary-color;
+        color: white;
+    }
+}

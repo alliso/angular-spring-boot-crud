@@ -1,0 +1,25 @@
+<div class="dialog-topbar">
+    <h1 mat-dialog-title>New Reader</h1>
+  </div>
+    <div mat-dialog-content>
+      <form [formGroup]="newReaderForm">
+        <p>
+          <mat-form-field>
+            <mat-label>First Name</mat-label>
+            <input class="matInput" matInput placeholder="Ex. Pepe" 
+            value="" 
+            formControlName="firstName">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Ex. Garcia" 
+                            value=""
+                            formControlName="lastName">
+          </mat-form-field>
+        </p>
+        <button mat-raised-button (click)="saveNewReader()">Create</button>
+      </form>
+    </div>
+  

@@ -1,8 +1,8 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Book } from '../shared/book';
-import { BookService } from '../book/book.service';
+import { Component, Inject, isDevMode, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { BookService } from '../book/book.service';
+import { Book } from '../shared/book';
 
 @Component({
   selector: 'app-book-modal',
@@ -39,21 +39,34 @@ export class BookModalComponent implements OnInit {
   }
 
   deleteBook(id: number) {
-    this.bookService.deleteBookById(id).subscribe((data: Book) => console.log("Deleted book", data));
+    this.bookService.deleteBookById(id).subscribe((data: Book) => {
+      if(isDevMode())
+        console.log("Deleted book", data);
+    });
   }
 
   updateBook() {
     this.book.title = this.bookForm.get("title")?.value;
     this.book.author = this.bookForm.get("author")?.value;
     this.book.description = this.bookForm.get("description")?.value
-    this.bookService.updateBook(this.book).subscribe((data: Book) => console.log("Updated book", data));
+    this.bookService.updateBook(this.book).subscribe((data: Book) => {
+      if(isDevMode())
+        console.log("Updated book", data);
+
+      this.dialogRef.close();
+    });
   }
 
   createBook() {
     this.book.title = this.bookForm.get("title")?.value;
     this.book.author = this.bookForm.get("author")?.value;
     this.book.description = this.bookForm.get("description")?.value
-    this.bookService.createBook(this.book).subscribe((data: Book) => console.log("Created book", data));
+    this.bookService.createBook(this.book).subscribe((data: Book) => {
+      if(isDevMode())
+        console.log("Created book", data)
+
+      this.dialogRef.close();
+    });
   }
 
 }

@@ -1,0 +1,37 @@
+@import '../shared/styles/index.scss';
+
+
+.dialog-topbar {
+    display: flex;
+    justify-content: space-between;
+    > div {
+        > h1, h2 {
+            display: inline;
+            margin: 2px;
+        }
+    }
+
+    button {
+        background-color: $primary-color;
+    }
+}
+
+h2 {
+    font-size: 16px;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+        background-color: $primary-color;
+    }
+}
+
+mat-list-item {
+    mat-icon {
+        color: $complementary-color;
+        cursor: pointer;
+    }
+}

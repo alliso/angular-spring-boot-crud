@@ -21,6 +21,8 @@ import { BooksListComponent } from './books-list/books-list.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule} from '@angular/material/icon';
+import { ReaderModalComponent } from './reader-modal/reader-modal.component';
+import { NewReaderModalComponent } from './new-reader-modal/new-reader-modal.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { MatIconModule} from '@angular/material/icon';
     ReaderComponent,
     TopMenuComponent,
     BooksListComponent,
+    ReaderModalComponent,
+    NewReaderModalComponent,
   ],
   imports: [
     BrowserModule,

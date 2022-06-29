@@ -35,12 +35,14 @@ export class BooksListComponent implements OnInit {
 
   openPopup(id: number) {
     const dialogRef = this.dialog.open(BookModalComponent, { width: 'fit-content', height: 'fit-content', data:id, panelClass: "modal-box"});
+    dialogRef.afterClosed().subscribe(() => {
+      this.ngOnInit();
+    })
   }
 
   updateBooks(page: number) {
     this.bookService.getBooks(page).subscribe((data: BookPage) => {
       this.books = data.content;
-      console.log("Books", this.books);
       this.ngOnInit();
     });
   }
